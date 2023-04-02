@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheDominionOfKingsWithTakingANumber", "TheDominionOfKingsWithTakingANumber.csproj", "{D44ABE7E-A3DA-4C9A-86E3-D716B5266934}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D44ABE7E-A3DA-4C9A-86E3-D716B5266934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D44ABE7E-A3DA-4C9A-86E3-D716B5266934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D44ABE7E-A3DA-4C9A-86E3-D716B5266934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D44ABE7E-A3DA-4C9A-86E3-D716B5266934}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF0A620D-4423-41E0-9C13-5480E6E9F187}
+	EndGlobalSection
+EndGlobal
