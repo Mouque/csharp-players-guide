@@ -175,9 +175,9 @@ public class Player
 
     public void MoveNorth() { if (Row > 0) Row--; }
 
-    public void MoveSouth() { if (Row < 4) Row++; }
+    public void MoveSouth() { if (Row < 3) Row++; }
 
-    public void MoveEast() { if (Column < 4) Column++; }
+    public void MoveEast() { if (Column < 3) Column++; }
 
     public void MoveWest() { if (Column > 0) Column--; }
 
