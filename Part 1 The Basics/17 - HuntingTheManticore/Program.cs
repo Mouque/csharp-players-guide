@@ -10,15 +10,15 @@ int cannonFiredPosition;
 
 
 // Ask for a number to the player
-int AskForNumberInRange(string textToDisplay, int minRange, int maxRange)
+int AskForNumberInRange( string textToDisplay, int minRange, int maxRange )
 {
-    Console.WriteLine(textToDisplay);
-    Console.Write($"Number between {minRange} and {maxRange}: ");
-    int number = Convert.ToInt32(Console.ReadLine());
-    if (number < minRange || number > maxRange)
+    Console.WriteLine( textToDisplay );
+    Console.Write( $"Number between {minRange} and {maxRange}: " );
+    int number = Convert.ToInt32( Console.ReadLine() );
+    while ( number < minRange || number > maxRange )
     {
-        Console.Write("Out of range, try again: ");
-        number = Convert.ToInt32(Console.ReadLine());
+        Console.Write( "Out of range, try again: " );
+        number = Convert.ToInt32( Console.ReadLine() );
     }
     return number;
 }
@@ -27,18 +27,18 @@ int AskForNumberInRange(string textToDisplay, int minRange, int maxRange)
 void ShowStatus()
 {
     string status = $"Round: {currentRound} City: {cityCurrentHealth}/{cityMaxHealth}  Manticore: {manticoreCurrentHealth}/{manticoreMaxHealth}";
-    Console.WriteLine(status);
+    Console.WriteLine( status );
 }
 
 // Compute the cannon damage of the round
 int ComputeDamage()
 {
 
-    if (currentRound % 3 == 0 && currentRound % 5 == 0)
+    if ( currentRound % 3 == 0 && currentRound % 5 == 0 )
     {
         return cannonDamage = 10;
     }
-    else if (currentRound % 5 == 0 || currentRound % 3 == 0)
+    else if ( currentRound % 5 == 0 || currentRound % 3 == 0 )
     {
         return cannonDamage = 3;
     }
@@ -48,16 +48,16 @@ int ComputeDamage()
 // Show to the player how much damage the cannon will deal at that round
 void ShowExpectedDamage()
 {
-    if (cannonDamage == 10) Console.ForegroundColor = ConsoleColor.Blue;
-    if (cannonDamage == 3)
+    if ( cannonDamage == 10 ) Console.ForegroundColor = ConsoleColor.Blue;
+    if ( cannonDamage == 3 )
     {
-        if (currentRound % 5 == 0) Console.ForegroundColor = ConsoleColor.Yellow;
+        if ( currentRound % 5 == 0 ) Console.ForegroundColor = ConsoleColor.Yellow;
         else
         {
             Console.ForegroundColor = ConsoleColor.Red;
         }
     }
-    Console.WriteLine($"The cannon is expected to deal {cannonDamage} damage this round");
+    Console.WriteLine( $"The cannon is expected to deal {cannonDamage} damage this round" );
     Console.ForegroundColor = ConsoleColor.White;
 }
 
@@ -65,19 +65,19 @@ void ShowExpectedDamage()
 void ComputeAndShowRoundResult()
 {
 
-    if (manticorePosition == cannonFiredPosition)
+    if ( manticorePosition == cannonFiredPosition )
     {
-        Console.WriteLine("That round was a DIRECT HIT!");
+        Console.WriteLine( "That round was a DIRECT HIT!" );
         ComputeDamage();
         manticoreCurrentHealth -= cannonDamage;
     }
-    else if (manticorePosition > cannonFiredPosition)
+    else if ( manticorePosition > cannonFiredPosition )
     {
-        Console.WriteLine("That round FELL SHORT of the target.");
+        Console.WriteLine( "That round FELL SHORT of the target." );
     }
-    else if (manticorePosition < cannonFiredPosition)
+    else if ( manticorePosition < cannonFiredPosition )
     {
-        Console.WriteLine("That round OVERSHOT the target.");
+        Console.WriteLine( "That round OVERSHOT the target." );
     }
     cityCurrentHealth--;
     currentRound++;
@@ -86,28 +86,28 @@ void ComputeAndShowRoundResult()
 // Run the game calling the methods
 void RunGame()
 {
-    manticorePosition = AskForNumberInRange("Player 1, how far away from the city do you want to station the Manticore?", 0, 100);
+    manticorePosition = AskForNumberInRange( "Player 1, how far away from the city do you want to station the Manticore?", 0, 100 );
     Console.Clear();
-    Console.WriteLine("Player 2, it is your turn.");
-    Console.WriteLine("-----------------------------------------------------------");
+    Console.WriteLine( "Player 2, it is your turn." );
+    Console.WriteLine( "-----------------------------------------------------------" );
 
-    while (cityCurrentHealth > 0 && manticoreCurrentHealth > 0)
+    while ( cityCurrentHealth > 0 && manticoreCurrentHealth > 0 )
     {
         ShowStatus();
         ComputeDamage();
         ShowExpectedDamage();
-        cannonFiredPosition = AskForNumberInRange("Enter desired cannon range: ", 0, 100);
+        cannonFiredPosition = AskForNumberInRange( "Enter desired cannon range: ", 0, 100 );
         ComputeAndShowRoundResult();
-        Console.WriteLine("-----------------------------------------------------------");
+        Console.WriteLine( "-----------------------------------------------------------" );
     }
 
-    if (cityCurrentHealth == 0)
+    if ( cityCurrentHealth == 0 )
     {
-        Console.WriteLine("Consolas has been destroyed!!");
+        Console.WriteLine( "Consolas has been destroyed!!" );
     }
-    else if (manticoreCurrentHealth == 0)
+    else if ( manticoreCurrentHealth == 0 )
     {
-        Console.WriteLine("The Manticore has been destroyed! The city of Consolas has been saved!");
+        Console.WriteLine( "The Manticore has been destroyed! The city of Consolas has been saved!" );
     }
 }
 
